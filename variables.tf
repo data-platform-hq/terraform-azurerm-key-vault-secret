@@ -7,6 +7,7 @@ variable "key_vault_id" {
 # Optional
 variable "secrets" {
   type    = map(any)
+  description = "Key-value pairs of secrets to be created in the Key Vault"
   default = {}
 }
 
