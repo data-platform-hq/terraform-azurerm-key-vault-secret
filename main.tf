@@ -12,9 +12,4 @@ resource "azurerm_key_vault_secret" "this" {
   key_vault_id    = var.key_vault_id
   tags            = var.tags
 
-  lifecycle {
-    ignore_changes = [
-      value
-    ]
-  }
 }
