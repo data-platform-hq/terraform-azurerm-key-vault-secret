@@ -13,8 +13,6 @@ resource "azurerm_key_vault_secret" "this" {
   tags            = var.tags
 
   lifecycle {
-    ignore_changes = [
-      value
-    ]
+    ignore_changes = var.ignore_changes
   }
 }
