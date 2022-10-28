@@ -22,9 +22,3 @@ variable "default_expiration_date" {
   description = "Expiration UTC datetime (Y-m-d'T'H:M:S'Z')"
   default     = null
 }
-
-variable "ignore_changes" {
-  type        = list(string)
-  description = "A list of arguments that should be ignored when determining if a resource needs to be replaced"
-  default     = []
-}

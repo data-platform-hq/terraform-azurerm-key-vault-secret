@@ -33,7 +33,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_default_expiration_date"></a> [default\_expiration\_date](#input\_default\_expiration\_date) | Expiration UTC datetime (Y-m-d'T'H:M:S'Z') | `string` | `null` | no |
 | <a name="input_key_vault_id"></a> [key\_vault\_id](#input\_key\_vault\_id) | The ID of the Key Vault where the Secret should be created | `string` | n/a | yes |
-| <a name="input_secrets"></a> [secrets](#input\_secrets) | Optional | `map(any)` | `{}` | no |
+| <a name="input_secrets"></a> [secrets](#input\_secrets) | Key-value pairs of secrets to be created in the Key Vault | `map(any)` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to the resource | `map(any)` | `{}` | no |
 
 ## Outputs
