@@ -11,6 +11,12 @@ variable "secrets" {
   default     = {}
 }
 
+variable "secrets_ignore_changes" {
+  type        = map(any)
+  description = "Key-value pairs of secrets ignored changes to be created in the Key Vault"
+  default     = {}
+}
+
 variable "tags" {
   type        = map(any)
   description = "A mapping of tags to assign to the resource"
