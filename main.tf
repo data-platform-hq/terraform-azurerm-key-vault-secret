@@ -13,3 +13,18 @@ resource "azurerm_key_vault_secret" "this" {
   tags            = var.tags
 
 }
+
+resource "azurerm_key_vault_secret" "ignore_changes" {
+  for_each = var.secrets_ignore_changes
+
+  name            = each.key
+  value           = each.value["value"]
+  content_type    = lookup(each.value, "content_type", "PlainText")
+  expiration_date = lookup(each.value, "expiration_date", local.default_expiration_date)
+  key_vault_id    = var.key_vault_id
+  tags            = var.tags
+
+  lifecycle {
+    ignore_changes = [value]
+  }
+}
