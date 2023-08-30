@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/compare/v1.0.1...v1.1.0) (2023-08-30)
+
+
+### Features
+
+* secret ignore changes resourse ([9f58c0f](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/commit/9f58c0fd68fde1d7a4ef5a0335f74c124bccf5dc))
+
 ## [1.0.1](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/compare/v1.0.0...v1.0.1) (2022-10-28)
 
 
