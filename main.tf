@@ -42,6 +42,6 @@ resource "azurerm_storage_account" "example" {
   account_tier             = "Standard"
   account_replication_type = "GRS"
 
-  // Intentionally disable secure transfer
+  # Intentionally disable secure transfer
   enable_https_traffic_only = false
 }
