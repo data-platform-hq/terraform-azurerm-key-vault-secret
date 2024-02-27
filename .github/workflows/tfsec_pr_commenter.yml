@@ -2,7 +2,7 @@ name: tfsec-pr-commenter
 on:
   pull_request:
 jobs:
-  tfsec:
+  tfsecPRcommenter:
     name: tfsec PR commenter
     runs-on: ubuntu-latest
 
