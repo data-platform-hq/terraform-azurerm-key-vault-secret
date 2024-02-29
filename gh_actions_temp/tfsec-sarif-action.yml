@@ -1,4 +1,5 @@
 name: tfsec-sarif
+
 on:
   push:
     branches:
@@ -6,7 +7,7 @@ on:
   pull_request:
 jobs:
   TFsecSARIF:
-    name: tfsec sarif report
+    name: Run tfsec sarif report
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -19,13 +20,13 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: tfsec
+      - name: Run tfsec
         uses: aquasecurity/tfsec-sarif-action@v0.1.0
         with:
           sarif_file: tfsec.sarif          
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: tfsec.sarif         

@@ -3,18 +3,18 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: tfsec
+name: tfsec-sarif
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
   schedule:
-    - cron: '27 10 * * 2'
+    - cron: '45 6 * * 1'
 
 jobs:
-  tfsec:
+  TFsecSARIF:
     name: Run tfsec sarif report
     runs-on: ubuntu-latest
     permissions:
@@ -25,14 +25,17 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
 
       - name: Run tfsec
-        uses: aquasecurity/tfsec-sarif-action@9a83b5c3524f825c020e356335855741fd02745f
+        uses: aquasecurity/tfsec-sarif-action@master
         with:
           sarif_file: tfsec.sarif
 
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: tfsec.sarif
