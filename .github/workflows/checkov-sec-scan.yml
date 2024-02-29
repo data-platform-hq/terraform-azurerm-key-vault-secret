@@ -39,7 +39,7 @@ jobs:
         output_format: cli,sarif
         output_file_path: console,results.sarif
         directory: .
-        soft_fail: true
+        soft_fail: false
         download_external_modules: true
         framework: terraform 
 
