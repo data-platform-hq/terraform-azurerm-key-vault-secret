@@ -10,7 +10,7 @@ on:
     - main
     - master
 
-jobs:
+# jobs:
   checkov_scan:
     name: Terraform security scan
     runs-on: ubuntu-latest
@@ -38,14 +38,14 @@ jobs:
         download_external_modules: true
         framework: terraform 
 
-    # - name: Upload SARIF file
-    #   uses: github/codeql-action/upload-sarif@v3
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v3
 
-    #   # Results are generated only on a success or failure
-    #   # this is required since GitHub by default won't run the next step
-    #   # when the previous one has failed. Security checks that do not pass will 'fail'.
-    #   # An alternative is to add `continue-on-error: true` to the previous step
-    #   # Or 'soft_fail: true' to checkov.
-    #   if: success() || failure()
-    #   with:
-    #     sarif_file: results.sarif
+      # Results are generated only on a success or failure
+      # this is required since GitHub by default won't run the next step
+      # when the previous one has failed. Security checks that do not pass will 'fail'.
+      # An alternative is to add `continue-on-error: true` to the previous step
+      # Or 'soft_fail: true' to checkov.
+      if: success() || failure()
+      with:
+        sarif_file: results.sarif
