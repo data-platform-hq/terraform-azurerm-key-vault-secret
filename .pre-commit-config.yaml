@@ -29,6 +29,7 @@ repos:
   - repo: https://github.com/semgrep/semgrep
     rev: 'v1.63.0'
     hooks:
-      - id: semgrep
+      - id: semgrep-ci
+        name: Semgrep Security Test
         # See https://semgrep.dev/explore to select a ruleset and copy its URL
-        args: ['--config', 'https://semgrep.dev/p/terraform', '--error', '--skip-unknown-extensions']
+        # args: ['--config', 'https://semgrep.dev/p/terraform', '--error', '--skip-unknown-extensions']

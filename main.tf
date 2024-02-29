@@ -30,18 +30,18 @@ resource "azurerm_key_vault_secret" "ignore_changes" {
 }
 
 #====================================================================================
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
-  location = "West Europe"
-}
+# resource "azurerm_resource_group" "example" {
+#   name     = "example-resources"
+#   location = "West Europe"
+# }
 
-resource "azurerm_storage_account" "example" {
-  name                     = "examplestoracc"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
+# resource "azurerm_storage_account" "example" {
+#   name                     = "examplestoracc"
+#   resource_group_name      = azurerm_resource_group.example.name
+#   location                 = azurerm_resource_group.example.location
+#   account_tier             = "Standard"
+#   account_replication_type = "GRS"
 
-  # Intentionally disable secure transfer
-  enable_https_traffic_only = false
-}
+#   # Intentionally disable secure transfer
+#   enable_https_traffic_only = false
+# }
