@@ -1,16 +1,16 @@
 name: Checkov Terraform security scan
 
-on:
-  push:
-    branches:
-    - main
-    - master
-  pull_request:
-    branches:
-    - main
-    - master
+on: workflow_dispatch
+  # push:
+  #   branches:
+  #   - main
+  #   - master
+  # pull_request:
+  #   branches:
+  #   - main
+  #   - master
 
-# jobs:
+jobs:
   checkov_scan:
     name: Terraform security scan
     runs-on: ubuntu-latest
