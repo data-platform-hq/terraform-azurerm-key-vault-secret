@@ -18,6 +18,9 @@ on:
     - main
     - master
 
+permissions:
+  contents: read
+  
 jobs:
   snyk:
     name: Snyk Infrastructure as Code Terraform security scan
