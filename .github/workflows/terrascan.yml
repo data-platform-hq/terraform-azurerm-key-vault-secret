@@ -25,9 +25,9 @@ jobs:
       uses: tenable/terrascan-action@main
       with:
         iac_type: 'terraform'
-        iac_version: 'v14'
-        only_warn: true
-        find_vulnerabilities:
+        iac_version: 'v15'
+        only_warn: false
+        find_vulnerabilities: true
         sarif_upload: true
         #non_recursive:
         #policy_path:
