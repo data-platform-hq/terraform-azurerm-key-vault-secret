@@ -40,10 +40,6 @@ jobs:
         # or you can signup for free at https://snyk.io/login
         SNYK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Runs Snyk Open Source (SCA) analysis and uploads result to Snyk.
-    - name: Snyk Open Source monitor
-      run: snyk monitor --all-projects
-    
       # Runs Snyk Infrastructure as Code (IaC) analysis and uploads result to Snyk.
       # Use || true to not fail the pipeline.
     - name: Snyk IaC test and report
