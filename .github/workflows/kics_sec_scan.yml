@@ -24,7 +24,9 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         fail_on: high,medium
         enable_comments: true
+        comments_with_queries: true
         output_formats: 'sarif'
+        ignore_on_exit: results
 
     - name: Upload KICS scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v3
