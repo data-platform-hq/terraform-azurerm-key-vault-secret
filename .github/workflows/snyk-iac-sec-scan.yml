@@ -7,19 +7,15 @@
 
 name: Snyk Infrastructure as Code Terraform security scan
 
-on: 
-  # workflow_dispatch
+on: workflow_dispatch
   # push:
   #   branches:
   #   - main
   #   - master
-  pull_request:
-    branches:
-    - main
-    - master
-
-permissions:
-  contents: read
+  # pull_request:
+  #   branches:
+  #   - main
+  #   - master
 
 jobs:
   snyk:
@@ -30,20 +26,30 @@ jobs:
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Run Snyk to check configuration files for security issues
+    - uses: actions/checkout@v3
 
-        # Snyk can be used to break the build when it detects security issues.
-        # In this case we want to upload the issues to GitHub Code Scanning
-        continue-on-error: true
-        uses: snyk/actions/iac@master
-        env:
-          # In order to use the Snyk Action you will need to have a Snyk API token.
-          # More details in https://github.com/snyk/actions#getting-your-snyk-token
-          # or you can signup for free at https://snyk.io/login
-          SNYK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Snyk to check configuration files for security issues
+      # Snyk can be used to break the build when it detects security issues.
+      # In this case we want to upload the issues to GitHub Code Scanning
+      continue-on-error: true
+      uses: snyk/actions/setup@master
+      env:
+        # In order to use the Snyk Action you will need to have a Snyk API token.
+        # More details in https://github.com/snyk/actions#getting-your-snyk-token
+        # or you can signup for free at https://snyk.io/login
+        SNYK_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload result to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk.sarif 
+      # Runs Snyk Open Source (SCA) analysis and uploads result to Snyk.
+    - name: Snyk Open Source monitor
+      run: snyk monitor --all-projects
+    
+      # Runs Snyk Infrastructure as Code (IaC) analysis and uploads result to Snyk.
+      # Use || true to not fail the pipeline.
+    - name: Snyk IaC test and report
+      run: snyk iac test --report # || true
+      
+      # Push the Snyk Code results into GitHub Code Scanning tab  
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: snyk.sarif 
