@@ -23,8 +23,9 @@ jobs:
         path: .
         token: ${{ secrets.GITHUB_TOKEN }}
         fail_on: high,medium
-        enable_comments: true
-        comments_with_queries: true
+        enable_annotations: true
+        # enable_comments: true
+        # comments_with_queries: true
         output_formats: 'sarif'
         ignore_on_exit: results
 
