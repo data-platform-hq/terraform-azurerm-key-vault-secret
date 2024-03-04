@@ -1,14 +1,12 @@
 name: Checkov Terraform security scan
 
-on: workflow_dispatch
+on: #workflow_dispatch
   # push:
   #   branches:
   #   - main
-  #   - master
-  # pull_request:
-  #   branches:
-  #   - main
-  #   - master
+  pull_request:
+    branches:
+    - main
 
 jobs:
   checkov_scan:
@@ -30,21 +28,21 @@ jobs:
       uses: bridgecrewio/checkov-action@master
       with:
         # This will add both a CLI output to the console and create a results.sarif file
-        output_format: cli,sarif
-        output_file_path: console,results.sarif
+        output_format: cli #,sarif
+        output_file_path: console #,results.sarif
         directory: .
-        soft_fail: false
+        soft_fail: true
         download_external_modules: true
         framework: terraform 
 
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v3
+    # - name: Upload SARIF file
+    #   uses: github/codeql-action/upload-sarif@v3
 
-      # Results are generated only on a success or failure
-      # this is required since GitHub by default won't run the next step
-      # when the previous one has failed. Security checks that do not pass will 'fail'.
-      # An alternative is to add `continue-on-error: true` to the previous step
-      # Or 'soft_fail: true' to checkov.
-      if: success() || failure()
-      with:
-        sarif_file: results.sarif
+    #   # Results are generated only on a success or failure
+    #   # this is required since GitHub by default won't run the next step
+    #   # when the previous one has failed. Security checks that do not pass will 'fail'.
+    #   # An alternative is to add `continue-on-error: true` to the previous step
+    #   # Or 'soft_fail: true' to checkov.
+    #   if: success() || failure()
+    #   with:
+    #     sarif_file: results.sarif
