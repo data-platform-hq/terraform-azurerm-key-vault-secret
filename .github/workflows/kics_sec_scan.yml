@@ -25,10 +25,10 @@ jobs:
         path: .
         # output_path: myResults/
         enable_comments: true
-        # enable_annotations: true
+        enable_annotations: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        # verbose: true
-        ignore_on_exit: results
+        verbose: true
+        # ignore_on_exit: results
 
     # - name: Upload KICS scan results to GitHub Security tab
     #   uses: github/codeql-action/upload-sarif@v3
