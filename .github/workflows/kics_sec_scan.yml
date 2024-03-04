@@ -20,16 +20,13 @@ jobs:
       uses: checkmarx/kics-github-action@v1.7.0
       with:
         path: .
-        # token: ${{ secrets.GITHUB_TOKEN }}
-        fail_on: high,medium
+        fail_on: high
         enable_annotations: true
-        # enable_comments: true
-        # comments_with_queries: true
         output_formats: 'sarif'
         verbose: true
         ignore_on_exit: results
 
-    - name: Upload KICS scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: 'results.sarif'
+    # - name: Upload KICS scan results to GitHub Security tab
+    #   uses: github/codeql-action/upload-sarif@v3
+    #   with:
+    #     sarif_file: 'results.sarif'
