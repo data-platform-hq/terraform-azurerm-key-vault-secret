@@ -1,12 +1,12 @@
 name: Checkov Terraform security scan
 
-on: #workflow_dispatch
+on: workflow_dispatch
   # push:
   #   branches:
   #   - main
-  pull_request:
-    branches:
-    - main
+  # pull_request:
+  #   branches:
+  #   - main
 
 jobs:
   checkov_scan:
