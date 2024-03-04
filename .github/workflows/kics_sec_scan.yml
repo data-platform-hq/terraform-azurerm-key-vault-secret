@@ -19,10 +19,10 @@ jobs:
       uses: checkmarx/kics-github-action@v1.7.0
       with:
         path: .
-        fail_on: high,medium
+        output_path: myResults/
         enable_comments: true
         enable_annotations: true
-        # output_formats: 'sarif'
+        token: ${{ secrets.GITHUB_TOKEN }}
         verbose: true
         ignore_on_exit: results
 
