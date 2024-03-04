@@ -1,11 +1,10 @@
 name: Run security KICS scaner
 
-on: workflow_dispatch
+on: #workflow_dispatch
   # push:
-  # pull_request:
-  #   # The branches below must be a subset of the branches above
-  #   branches:
-  #   - main
+  pull_request:
+    branches:
+    - main
 
 jobs:
   kics:
@@ -21,12 +20,13 @@ jobs:
       with:
         path: .
         fail_on: high,medium
+        enable_comments: true
         enable_annotations: true
-        output_formats: 'sarif'
+        # output_formats: 'sarif'
         verbose: true
         ignore_on_exit: results
 
-    - name: Upload KICS scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: 'results.sarif'
+    # - name: Upload KICS scan results to GitHub Security tab
+    #   uses: github/codeql-action/upload-sarif@v3
+    #   with:
+    #     sarif_file: 'results.sarif'

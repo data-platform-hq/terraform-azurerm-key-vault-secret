@@ -1,14 +1,10 @@
 name: Perform Terrascan Action
 
-on: #workflow_dispatch
+on: workflow_dispatch
   # push:
-    # branches:
-    # - main
-    # - master
-  pull_request:
-    branches:
-    - main
-    - master
+  # pull_request:
+  #   branches:
+  #   - main
 
 jobs:
   terrascan_job:
