@@ -25,9 +25,9 @@ jobs:
         path: .
         # output_path: myResults/
         enable_comments: true
-        enable_annotations: true
+        # enable_annotations: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        verbose: true
+        # verbose: true
         ignore_on_exit: results
 
     # - name: Upload KICS scan results to GitHub Security tab
