@@ -1,12 +1,11 @@
 name: Run security KICS scaner
 
-on: 
-  #workflow_dispatch
+on: workflow_dispatch
   # push:
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches:
-    - main
+  # pull_request:
+  #   # The branches below must be a subset of the branches above
+  #   branches:
+  #   - main
 
 jobs:
   kics:
@@ -27,6 +26,7 @@ jobs:
         # enable_comments: true
         # comments_with_queries: true
         output_formats: 'sarif'
+        verbose: true
         ignore_on_exit: results
 
     - name: Upload KICS scan results to GitHub Security tab
