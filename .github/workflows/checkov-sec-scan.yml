@@ -28,10 +28,10 @@ jobs:
       uses: bridgecrewio/checkov-action@master
       with:
         # This will add both a CLI output to the console and create a results.sarif file
-        output_format: cli #,sarif
+        output_format: github_failed_only,cli #,sarif
         output_file_path: console #,results.sarif
         directory: .
-        soft_fail: true
+        soft_fail: false
         download_external_modules: true
         framework: terraform 
 
