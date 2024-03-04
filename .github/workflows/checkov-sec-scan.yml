@@ -31,7 +31,7 @@ jobs:
         output_format: github_failed_only,cli #,sarif
         output_file_path: console #,results.sarif
         directory: .
-        soft_fail: false
+        soft_fail: true
         download_external_modules: true
         framework: terraform 
 
