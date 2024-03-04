@@ -1,11 +1,11 @@
 name: Run Trivy vulnerability scanner
 
-on: #workflow_dispatch
+on: workflow_dispatch
   # push:
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches:
-    - main
+  # pull_request:
+  #   # The branches below must be a subset of the branches above
+  #   branches:
+  #   - main
 
 jobs:
   scan:
@@ -26,7 +26,7 @@ jobs:
         ignore-unfixed: true
         severity: 'CRITICAL,HIGH'
         exit-code: 0
-        github-pat: ${{secrets.GITHUB_TOKEN}}
+        # github-pat: ${{secrets.GITHUB_TOKEN}}
 
     # - name: Upload Trivy scan results to GitHub Security tab
     #   uses: github/codeql-action/upload-sarif@v3

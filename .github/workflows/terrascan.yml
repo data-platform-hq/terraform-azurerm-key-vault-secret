@@ -27,9 +27,9 @@ jobs:
         iac_version: 'v15'
         only_warn: true
         verbose: true
-        sarif_upload: true
+        # sarif_upload: true
           
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v3
-      with:
-        sarif_file: terrascan.sarif
+    # - name: Upload SARIF file
+    #   uses: github/codeql-action/upload-sarif@v3
+    #   with:
+    #     sarif_file: terrascan.sarif
