@@ -1,7 +1,6 @@
 name: Run security KICS scaner
 
 on: 
-  # workflow_dispatch
   pull_request:
     branches:
     - main
