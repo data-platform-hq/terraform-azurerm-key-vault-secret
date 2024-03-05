@@ -20,5 +20,5 @@ jobs:
       with:
         path: .
         enable_comments: true
-        # enable_annotations: true
+        enable_annotations: false
         ignore_on_exit: results
