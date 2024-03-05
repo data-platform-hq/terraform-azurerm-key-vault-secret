@@ -18,6 +18,8 @@ jobs:
       uses: checkmarx/kics-github-action@v1.7.0
       with:
         path: .
-        enable_comments: false
+        output_path: myResults/
+        output_formats: 'sarif'
+        enable_comments: true
         enable_annotations: true
         ignore_on_exit: results
