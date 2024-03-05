@@ -1,7 +1,7 @@
 name: Run security KICS scaner
 
-on: #workflow_dispatch
-  # push:
+on: 
+  # workflow_dispatch
   pull_request:
     branches:
     - main
@@ -10,10 +10,6 @@ jobs:
   kics:
     name: Run security KICS scaner
     runs-on: "ubuntu-latest"
-    # permissions:
-    #   actions: read
-    #   contents: read
-    #   security-events: write
 
     steps:
     - name: Checkout code repo
@@ -23,14 +19,7 @@ jobs:
       uses: checkmarx/kics-github-action@v1.7.0
       with:
         path: .
-        # output_path: myResults/
-        enable_comments: true
+        # enable_comments: true
         enable_annotations: true
-        # token: ${{ secrets.GITHUB_TOKEN }}
-        # verbose: true
         ignore_on_exit: results
 
-    # - name: Upload KICS scan results to GitHub Security tab
-    #   uses: github/codeql-action/upload-sarif@v3
-    #   with:
-    #     sarif_file: 'results.sarif'
