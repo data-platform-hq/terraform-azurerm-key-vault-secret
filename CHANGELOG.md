@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/compare/v1.1.0...v1.2.0) (2024-09-10)
+
+
+### Bug Fixes
+
+* added security KICS scan action ([c858973](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/commit/c85897350cc169f2d3b3c05aaf5bb310b4c5a7d7))
+* replaced pre-commit repo docs creation/update by GH Actions ([8ef7ac0](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/commit/8ef7ac022f6df20a6d7ce8109d287d3709aefe93))
+
+
+### Features
+
+* upgrade to AzureRM v4 ([555632c](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/commit/555632c9f0eeb029dff449434dbf4767cdb3754d))
+
 # [1.1.0](https://github.com/data-platform-hq/terraform-azurerm-key-vault-secret/compare/v1.0.1...v1.1.0) (2023-08-30)
 
 
